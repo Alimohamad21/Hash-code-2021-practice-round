@@ -11,7 +11,7 @@ def deliver_pizzas(fp):
     for line in fp:
         line = line.split()
         if first:
-            no_of_pizzas = int(line[0])
+            no_of_pizzas = int(line[0])                # reads file
             n_t2 = int(line[1])
             n_t3 = int(line[2])
             n_t4 = int(line[3])
@@ -22,11 +22,11 @@ def deliver_pizzas(fp):
             pizza_ingredients['ingredients'] = []
             for i in range(1, len(line)):
                 pizza_ingredients['ingredients'].append(line[i])
-            pizzas_list.append(pizza_ingredients)  # read file
+            pizzas_list.append(pizza_ingredients)
     subarray_list = []
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 1):  # finds all different combinations for  teams of 2,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 1):  # finds all different combinations for  teams of 2,and stores the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list)):
@@ -47,7 +47,7 @@ def deliver_pizzas(fp):
             subarray_list.append(subarray)
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 2):  # finds all different combinations for  teams of 3,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 2):  # finds all different combinations for  teams of 3,and stores the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list) - 1):
@@ -75,7 +75,7 @@ def deliver_pizzas(fp):
                 subarray_list.append(subarray)
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 3):  # finds all different combinations for  teams of 4,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 3):  # finds all different combinations for  teams of 4,and stores the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list) - 2):
@@ -93,8 +93,7 @@ def deliver_pizzas(fp):
                     #     brk = True
                     #     break
                     # c += 1
-                    for ingredient in range(len(pizzas_list[i][
-                                                    'ingredients'])):  # finds duplicates between pizzas to remove them from ingredients count
+                    for ingredient in range(len(pizzas_list[i]['ingredients'])):  # finds duplicates between pizzas to remove them from ingredients count
                         if pizzas_list[i]['ingredients'][ingredient] in pizzas_list[j]['ingredients']:
                             dupes += 1
                         elif pizzas_list[i]['ingredients'][ingredient] in pizzas_list[k]['ingredients']:
