@@ -26,7 +26,7 @@ def deliver_pizzas(fp):
     subarray_list = []
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 1):  # find all different combinations for  teams of 2,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 1):  # finds all different combinations for  teams of 2,and store the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list)):
@@ -47,7 +47,7 @@ def deliver_pizzas(fp):
             subarray_list.append(subarray)
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 2):  # find all different combinations for  teams of 3,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 2):  # finds all different combinations for  teams of 3,and store the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list) - 1):
@@ -75,7 +75,7 @@ def deliver_pizzas(fp):
                 subarray_list.append(subarray)
     c = 0
     brk = False
-    for i in range(len(pizzas_list) - 3):  # find all different combinations for  teams of 4,and store the ingredients count between them
+    for i in range(len(pizzas_list) - 3):  # finds all different combinations for  teams of 4,and store the ingredients count between them
         # if brk:
         #     break
         for j in range(i + 1, len(pizzas_list) - 2):
@@ -94,7 +94,7 @@ def deliver_pizzas(fp):
                     #     break
                     # c += 1
                     for ingredient in range(len(pizzas_list[i][
-                                                    'ingredients'])):  # find duplicates between pizzas to remove them from ingredients count
+                                                    'ingredients'])):  # finds duplicates between pizzas to remove them from ingredients count
                         if pizzas_list[i]['ingredients'][ingredient] in pizzas_list[j]['ingredients']:
                             dupes += 1
                         elif pizzas_list[i]['ingredients'][ingredient] in pizzas_list[k]['ingredients']:
@@ -111,7 +111,7 @@ def deliver_pizzas(fp):
                             dupes += 1
                     subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(pizzas_list[j]['ingredients']) + len(pizzas_list[k]['ingredients']) + len(pizzas_list[l]['ingredients']) - dupes
                     subarray_list.append(subarray)
-    subarray_list.sort(reverse=True, key=lambda x: x['ingredients_count'])  # arrange different combinations of pizza descendingly according to ingredients count
+    subarray_list.sort(reverse=True, key=lambda x: x['ingredients_count'])  # arranges different combinations of pizza descendingly according to ingredients count
     delivered_pizzas = []  # keeps track of delivered pizzas so that they wont be delivered again
     count = 0
     deliveries = ''  # keeps track of details of deliveries made
