@@ -8,7 +8,6 @@ def deliver_pizzas(fp):
     n_t2 = 0
     n_t3 = 0
     n_t4 = 0
-    output_fp = open(fp.name + '_output.txt', 'w')
     for line in fp:
         line = line.split()
         if first:
@@ -44,8 +43,7 @@ def deliver_pizzas(fp):
             for ingredient in range(len(pizzas_list[i]['ingredients'])):
                 if pizzas_list[i]['ingredients'][ingredient] in pizzas_list[j]['ingredients']:
                     dupes += 1
-            subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(
-                pizzas_list[j]['ingredients']) - dupes
+            subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(pizzas_list[j]['ingredients']) - dupes
             subarray_list.append(subarray)
     c = 0
     brk = False
@@ -73,8 +71,7 @@ def deliver_pizzas(fp):
                 for ingredient in range(len(pizzas_list[j]['ingredients'])):
                     if pizzas_list[j]['ingredients'][ingredient] in pizzas_list[k]['ingredients']:
                         dupes += 1
-                subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(
-                    pizzas_list[j]['ingredients']) + len(pizzas_list[k]['ingredients']) - dupes
+                subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(pizzas_list[j]['ingredients']) + len(pizzas_list[k]['ingredients']) - dupes
                 subarray_list.append(subarray)
     c = 0
     brk = False
@@ -112,9 +109,7 @@ def deliver_pizzas(fp):
                     for ingredient in range(len(pizzas_list[k]['ingredients'])):
                         if pizzas_list[k]['ingredients'][ingredient] in pizzas_list[l]['ingredients']:
                             dupes += 1
-                    subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(
-                        pizzas_list[j]['ingredients']) + len(
-                        pizzas_list[k]['ingredients']) + len(pizzas_list[l]['ingredients']) - dupes
+                    subarray['ingredients_count'] = len(pizzas_list[i]['ingredients']) + len(pizzas_list[j]['ingredients']) + len(pizzas_list[k]['ingredients']) + len(pizzas_list[l]['ingredients']) - dupes
                     subarray_list.append(subarray)
     subarray_list.sort(reverse=True, key=lambda x: x['ingredients_count'])  # arrange different combinations of pizza descendingly according to ingredients count
     delivered_pizzas = []  # keeps track of delivered pizzas so that they wont be delivered again
@@ -152,6 +147,7 @@ def deliver_pizzas(fp):
         if count == len(subarray_list) - 1:
             break
         count += 1
+    output_fp = open(fp.name + '_output.txt', 'w')
     deliveries = deliveries[:-1]
     output_fp.write(f'{delivery_count}\n')
     output_fp.write(deliveries)
